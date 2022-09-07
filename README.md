@@ -1,2 +1,2 @@
 # QuePortal
-Questionare Portal with djnago, DRF, React JS
+Questionare Portal with django, DRF, React JS
