@@ -1,7 +1,18 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import { userLogout } from '../services/AuthService'
+import { useNavigate } from 'react-router-dom'
 
 const Header = () => {
+
+  const navi = useNavigate()
+  const logoutHandler = (e)=>{
+    // e.preventDefault()
+    userLogout()
+    navi('/login')
+
+  }
+
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
   <Link className="navbar-brand" to="/">Navbar</Link>
@@ -20,7 +31,10 @@ const Header = () => {
         <Link className="nav-link" to="#">Add Questions</Link>
       </li>
       <li className="nav-item active">
-        <Link className="nav-link" to="#">Admin</Link>
+        <Link className="nav-link" to="/admin">Admin</Link>
+      </li>
+      <li className='nav-item active'>
+      <button onClick={logoutHandler}>Logout</button>
       </li>
     </ul>
   </div>

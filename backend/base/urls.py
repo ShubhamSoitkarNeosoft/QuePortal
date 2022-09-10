@@ -8,6 +8,6 @@ from . import views
 
 
 urlpatterns = [
-    path('users/login', views.MyTokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('', views.MyTokenObtainPairView.as_view(), name='token_obtain_pair'),
 
 ]

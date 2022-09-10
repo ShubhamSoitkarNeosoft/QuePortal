@@ -6,6 +6,8 @@ import ContactUsScreen from './screens/ContactUsScreen';
 import ErrorScreen from './screens/ErrorScreen';
 import RegisterScreen from './screens/RegisterScreen';
 import LoginScreen from './screens/LoginScreen';
+import AdminScreen from './screens/AdminScreen';
+import AllUsersScreen from './screens/AllUsersScreen';
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
         <Route element = {<RegisterScreen/>} path = "/register" />
         <Route element = {<LoginScreen/>} path = "/login" />
         <Route element = {<ContactUsScreen />} path = "/contactus" />
+        <Route element = {<AdminScreen />} path = "/admin" />
+        <Route element = {<AllUsersScreen />} path = "/admin/allusers" />
         <Route element = {<ErrorScreen />} path = "*" />
       </Routes>
     </>

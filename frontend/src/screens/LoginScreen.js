@@ -1,6 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { userLogin } from '../services/AuthService'
+import { useNavigate } from 'react-router-dom'
 
 const LoginScreen = () => {
+
+    const [email,setEmail] = useState('')
+    const [password,setPassword] = useState('')
+
+    const navi = useNavigate()
+
+    const submitHandler = async(e)=>{
+        e.preventDefault()
+        await userLogin(email,password)
+        navi('/')
+    }
+
   return (
     <>
     <div className='container'>
@@ -8,19 +22,25 @@ const LoginScreen = () => {
             <center>
                 <h2>Login</h2>
             </center>
-            <form>
+            <form onSubmit={submitHandler}>
                 <div className="form-group">
-                    <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
-                    <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
+                    <label>Email address</label>
+                    <input 
+                    type="email" 
+                    className="form-control" 
+                    placeholder="Enter email" 
+                    onChange={(e)=> setEmail(e.target.value)}
+                    />
                 </div>
+
                 <div className="form-group">
-                    <label for="exampleInputPassword1">Password</label>
-                    <input type="password" className="form-control" id="password" placeholder="Password" />
-                </div>
-                <div className="form-group">
-                    <label for="exampleInputPassword1">Confirm Password</label>
-                    <input type="password" className="form-control" id="confirmpassword" placeholder=" Confirm Password" />
+                    <label>Password</label>
+                    <input 
+                    type="password" 
+                    className="form-control" 
+                    placeholder="Enter Password" 
+                    onChange={(e)=> setPassword(e.target.value)}
+                    />
                 </div>
                 <button type="submit" className="btn btn-primary">Login</button>
             </form>
