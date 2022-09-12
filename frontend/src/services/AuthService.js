@@ -45,7 +45,7 @@ export const getCurrentUser = ()=>{
 }
 
 export const getAllUsers = async()=>{
-    console.log('inside getallusers')
+    try{
     const user = JSON.parse(localStorage.getItem("user"));
     // return await axios.get(`${API_URL}/users`,{headers:AuthHeader()})
     return await axios.get(`${API_URL}/users`,
@@ -54,6 +54,8 @@ export const getAllUsers = async()=>{
             'Content-type': 'application/json',
             Authorization: `Bearer ${user.token}`
         }
-    }
-    )
+    })
+}catch(error){
+    return (error.response.data.error)
+}
 }

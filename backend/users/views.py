@@ -45,7 +45,7 @@ def registerUser(request):
 @permission_classes([IsAuthenticated,])
 def getUserProfile(request):
     user = request.user # This is not a normal django user it comes from token as we are using DRF
-    if user == "AnonymousUser":
+    if user.is_anonymous:
         message = 'anonymous user not allowed'
         return Response({'message':message}, status=status.HTTP_400_BAD_REQUEST)
     else:

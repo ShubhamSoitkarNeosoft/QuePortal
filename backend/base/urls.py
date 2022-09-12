@@ -8,6 +8,7 @@ from . import views
 
 
 urlpatterns = [
-    path('', views.MyTokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('questions/',views.getQuestions, name = "questions"),
+    
 
 ]

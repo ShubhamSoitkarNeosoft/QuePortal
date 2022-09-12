@@ -14,7 +14,6 @@ const RegisterScreen = () => {
 
     const submitHandler = async(e)=>{
         e.preventDefault()
-        console.log('inside submit')
         await userSignUp(
             first_name,
             last_name,
@@ -22,6 +21,7 @@ const RegisterScreen = () => {
             password  
             )
         navi('/login')
+        window.location.reload()
     }
 
   return (

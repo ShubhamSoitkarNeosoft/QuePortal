@@ -36,9 +36,9 @@ const AllUsersScreen = () => {
                         <td>{data.email}</td>
                         <td>{data.first_name}</td>
                         <td>{data.last_name}</td>
-                        <td>{data.is_staff}</td>
-                        <td>{data.is_active}</td>
-                        <td>{data.is_superuser}</td>
+                        <td>{data.is_staff.toString()}</td>
+                        <td>{data.is_active.toString()}</td>
+                        <td>{data.is_superuser.toString()}</td>
                     </tr>
                 ))
             }

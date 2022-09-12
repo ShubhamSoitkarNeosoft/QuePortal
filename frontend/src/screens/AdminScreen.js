@@ -10,7 +10,7 @@ const AdminScreen = () => {
     }
   return (
     <div>
-        AdminScreen
+        AdminScreen<br></br><br></br>
         <Link to="/admin/allusers">Get All Users</Link>
         {/* <button onClick={getUserData}>Get All Users</button> */}
     </div>
