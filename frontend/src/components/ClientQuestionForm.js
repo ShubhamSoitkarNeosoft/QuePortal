@@ -42,7 +42,7 @@ const ClientQuestionForm = () => {
     const getQuestionData=async()=>{
         let response = await sendClientDetails(clientValue,categoryValue)
         // let response =await getClientQuestion()
-        response.data.question_detail.map((n)=>console.log(n))
+    response.data.question_detail.map((n)=>{(n.question)})
     }
 
     return (
