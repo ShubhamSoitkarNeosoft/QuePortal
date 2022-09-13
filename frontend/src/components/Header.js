@@ -12,25 +12,30 @@ const Header = () => {
     // e.preventDefault()
     userLogout()
     navi('/login')
+    window.location.reload()
 
   }
-  const [currentUser, setCurrentUser] = useState(undefined);
+  const [isLoogedIn, setLoggedIn] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false)
 
   useEffect(()=>{
-    getUserInfo()
-  },[currentUser])
+    userInfo()
+  },[])
 
-  const getUserInfo = async()=>{
+  const  userInfo  = async()=>{
     let user = await getCurrentUser()
     console.log(user)
     if (user){
-      console.log(typeof(user.email))
-      setCurrentUser(user.email)
-    }
-    else{
-      setCurrentUser(null)
+      setLoggedIn(true)
+      if (user.is_superuser){
+        setIsAdmin(true)
+      }
+    } else {
+      setLoggedIn(false)
     }
   }
+  
+
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -50,20 +55,23 @@ const Header = () => {
     
     <ul className="navbar-nav">
       <li className="nav-item active">
-        <Link className="nav-link" to="#">Add Questions</Link>
+        <Link className="nav-link" to="/question-form">View Questions</Link>
       </li>
-
+    { isLoogedIn && isAdmin &&
       <li className="nav-item active">
         <Link className="nav-link" to="/admin">Admin</Link>
       </li>
+    }
+      { !isLoogedIn  &&
       <li className="nav-item active">
         <Link className="nav-link" to="/login">Login</Link>
       </li>
-    
-
+      }
+    { isLoogedIn &&
       <li className='nav-item active'>
       <button onClick={logoutHandler}>Logout</button>
       </li>
+  }
     </ul>
    
   </div>

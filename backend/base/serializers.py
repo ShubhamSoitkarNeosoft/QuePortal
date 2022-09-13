@@ -12,6 +12,11 @@ class CategorySerializer(serializers.ModelSerializer):
         model = models.Category
         fields = '__all__'
 
+class ClientSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Client
+        fields = '__all__'
+
 class TechnologySerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Technology

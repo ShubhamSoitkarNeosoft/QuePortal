@@ -13,6 +13,7 @@ const LoginScreen = () => {
         e.preventDefault()
         await userLogin(email,password)
         navi('/')
+        window.location.reload()
     }
 
   return (

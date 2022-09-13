@@ -8,6 +8,7 @@ import RegisterScreen from './screens/RegisterScreen';
 import LoginScreen from './screens/LoginScreen';
 import AdminScreen from './screens/AdminScreen';
 import AllUsersScreen from './screens/AllUsersScreen';
+import QuestionFormScreen from './screens/question/QuestionFormScreen';
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
         <Route element = {<ContactUsScreen />} path = "/contactus" />
         <Route element = {<AdminScreen />} path = "/admin" />
         <Route element = {<AllUsersScreen />} path = "/admin/allusers" />
+        <Route element = {<QuestionFormScreen />} path = "/question-form" />
         <Route element = {<ErrorScreen />} path = "*" />
       </Routes>
     </>

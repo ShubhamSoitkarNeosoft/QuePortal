@@ -9,6 +9,6 @@ from . import views
 
 urlpatterns = [
     path('questions/',views.getQuestions, name = "questions"),
-    
-
+    path('getclients/',views.getClients, name = "clients"),
+    path('getcategories/',views.getCategories, name = "clients"),
 ]
